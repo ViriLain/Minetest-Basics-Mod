@@ -1,9 +1,11 @@
 -- Kindling: dry grass and wheat blocks as fuel
 
+local S = core.get_translator("basics")
+
 -- Blocks
 
 core.register_node("basics:wheat_block", {
-	description = "Wheat Block",
+	description = S("Wheat Block"),
 	tiles = {"default_dry_grass.png"},
 	groups = {cracky = 3, oddly_breakable_by_hand = 2},
 	is_ground_content = false,

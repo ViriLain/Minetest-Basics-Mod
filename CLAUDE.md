@@ -8,10 +8,13 @@ Luanti mod (formerly Minetest) called "Joes-Basics-Mod" that adds charcoal and k
 
 ```
 ├── init.lua            # Entry point — loads all feature modules via dofile()
-├── mod.conf            # Mod metadata and dependencies
+├── mod.conf            # Mod metadata, dependencies, and translation config
 ├── src/
 │   ├── charcoal.lua    # Charcoal items, blocks, cooking/crafting/fuel recipes
 │   └── kindling.lua    # Dry grass, wheat blocks, cooking/fuel recipes
+├── locale/
+│   ├── template.txt    # Translation template for translators
+│   └── basics.en.tr    # English translation strings
 ├── README.md           # Brief feature list
 ├── LICENSE             # MIT
 └── .gitignore
@@ -44,11 +47,30 @@ No `textures/` directory — all textures are reused from the `default` mod.
 - Add `sounds` to nodes using `default.node_sound_*_defaults()`
 - Numeric values for `burntime` and `cooktime` (not strings)
 
+### Translation (i18n)
+- Use `core.get_translator("basics")` at the top of each source file
+- Wrap all user-facing strings with `S()` (e.g. `description = S("Charcoal")`)
+- Translation files go in `locale/` as `basics.[lang].tr`
+- Template file `locale/template.txt` lists all translatable strings
+- Textdomain is set to `basics` in `mod.conf`
+
+### mod.conf Fields
+- `name` — mod identifier
+- `title` — human-readable display name
+- `description` — shown in the Mods tab
+- `author` — ContentDB username
+- `depends` — comma-separated required dependencies
+- `min_minetest_version` — minimum engine version
+- `textdomain` — translation textdomain (defaults to mod name)
+
 ### Adding New Features
 1. Create a new `.lua` file in `src/`
 2. Add a `dofile()` call in `init.lua` to load it
-3. Register items/nodes/crafts using the `basics:` namespace
-4. Reuse textures from `default` mod or add a `textures/` directory for custom ones
+3. Add `local S = core.get_translator("basics")` at the top
+4. Register items/nodes/crafts using the `basics:` namespace
+5. Wrap descriptions in `S()` for translation support
+6. Add new translatable strings to `locale/template.txt`
+7. Reuse textures from `default` mod or add a `textures/` directory for custom ones
 
 ## Build / Test / Lint
 

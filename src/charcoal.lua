@@ -1,16 +1,18 @@
 -- Charcoal: craft charcoal from saplings, charcoal blocks from trees
 
+local S = core.get_translator("basics")
+
 -- Items
 
 core.register_craftitem("basics:charcoal", {
-	description = "Charcoal",
+	description = S("Charcoal"),
 	inventory_image = "default_coal_lump.png",
 })
 
 -- Blocks
 
 core.register_node("basics:charcoal_block", {
-	description = "Charcoal Block",
+	description = S("Charcoal Block"),
 	tiles = {"default_coal_block.png"},
 	groups = {cracky = 3, oddly_breakable_by_hand = 2},
 	is_ground_content = false,

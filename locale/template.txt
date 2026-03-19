@@ -1,0 +1,4 @@
+# textdomain: basics
+Charcoal=
+Charcoal Block=
+Wheat Block=
