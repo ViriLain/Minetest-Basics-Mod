@@ -1,9 +1,9 @@
--- Main file for the basics mod
+-- Joes-Basics-Mod: Charcoal and kindling crafting systems
 
-local modname = minetest.get_current_modname()
-local path = minetest.get_modpath(modname)
+local modname = core.get_current_modname()
+local modpath = core.get_modpath(modname)
 
-dofile(path .. "/src/charcoal.lua")
-dofile(path .. "/src/kindling.lua")
+dofile(modpath .. "/src/charcoal.lua")
+dofile(modpath .. "/src/kindling.lua")
 
-minetest.log("action", "[MOD]"..modname.." -- loaded from "..path)
+core.log("action", "[MOD] " .. modname .. " loaded")
